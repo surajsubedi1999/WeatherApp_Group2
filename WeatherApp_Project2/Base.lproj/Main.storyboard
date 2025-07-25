@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,13 +11,13 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RontijaManoj_Lab3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherApp_Project2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uum-me-1xU" userLabel="Action Bar Stack View">
-                                <rect key="frame" x="20" y="99" width="353" height="34.333333333333343"/>
+                                <rect key="frame" x="20" y="158" width="353" height="34.333333333333343"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdk-At-Bwc">
                                         <rect key="frame" x="0.0" y="0.0" width="49" height="34.333333333333336"/>
@@ -49,7 +48,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="e7E-a4-Bt6">
-                                <rect key="frame" x="30" y="163.33333333333334" width="333" height="34.333333333333343"/>
+                                <rect key="frame" x="30" y="222.33333333333334" width="333" height="34.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsn-uZ-YIN">
                                         <rect key="frame" x="0.0" y="0.0" width="258" height="34.333333333333336"/>
@@ -71,7 +70,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="E9e-iK-yIG" userLabel="Display Stack View">
-                                <rect key="frame" x="20" y="233.33333333333337" width="353" height="290"/>
+                                <rect key="frame" x="20" y="292.33333333333331" width="353" height="289.99999999999994"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bXY-3e-9hU" userLabel="Temp Stack View">
                                         <rect key="frame" x="59" y="0.0" width="235" height="49"/>
@@ -106,7 +105,7 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbG-kO-4h2">
-                                        <rect key="frame" x="152" y="73.999999999999972" width="49" height="20.333333333333329"/>
+                                        <rect key="frame" x="152" y="74" width="49" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -125,7 +124,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="i2W-vd-1uO">
-                                <rect key="frame" x="25" y="623.33333333333337" width="343" height="91"/>
+                                <rect key="frame" x="25" y="682.33333333333337" width="343" height="91"/>
                                 <subviews>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="BDY-Sr-hYI">
                                         <rect key="frame" x="0.0" y="0.0" width="69.333333333333329" height="91"/>
@@ -248,7 +247,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="72" height="20"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.arrow.circlepath" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gPx-X4-e1h">
-                                                        <rect key="frame" x="0.0" y="0.99999999999999822" width="20" height="18.666666666666664"/>
+                                                        <rect key="frame" x="-0.33333333333333393" y="0.66666666666666607" width="20.333333333333336" height="18.666666666666671"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="P6G-UK-R6u"/>
@@ -320,13 +319,13 @@
         <!--City List View Controller-->
         <scene sceneID="3X8-Bk-sLs">
             <objects>
-                <viewController id="tj7-nz-wCx" customClass="CityListViewController" customModule="RontijaManoj_Lab3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tj7-nz-wCx" customClass="CityListViewController" customModule="WeatherApp_Project2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="szK-9w-abB">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oek-6F-B0E">
-                                <rect key="frame" x="30" y="20" width="333" height="802"/>
+                                <rect key="frame" x="30" y="79" width="333" height="684"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="citiesWeatherInfo" id="f67-vp-JUH">
@@ -362,7 +361,7 @@
     </scenes>
     <resources>
         <image name="arrow.up.and.down.and.arrow.left.and.right" catalog="system" width="128" height="122"/>
-        <image name="clock.arrow.circlepath" catalog="system" width="128" height="112"/>
+        <image name="clock.arrow.circlepath" catalog="system" width="128" height="119"/>
         <image name="cloudy" width="170.66667175292969" height="170.66667175292969"/>
         <image name="humidity.fill" catalog="system" width="128" height="106"/>
         <image name="location.square.fill" catalog="system" width="128" height="114"/>
