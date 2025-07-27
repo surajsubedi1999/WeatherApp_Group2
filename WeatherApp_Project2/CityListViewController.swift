@@ -4,37 +4,45 @@ class CityListViewController: UIViewController, UITableViewDataSource, UITableVi
 
     var cityList: [ViewController.WeatherResponse] = []
     var tempUnitIndex: Int = 0
-
+    
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        // Do NOT register a cell here if you use a prototype cell in storyboard
+        tableView.register(CityWeatherCell.self, forCellReuseIdentifier: "CityWeatherCell")
+        tableView.rowHeight = 60
     }
 
-    // MARK: UITableViewDataSource
+    // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cityList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CityWeatherCell", for: indexPath) as! CityWeatherCell
         let city = cityList[indexPath.row]
-
+        
+        // Prepare the temperature string
         let temp = tempUnitIndex == 0 ? city.current.temp_c : city.current.temp_f
-        cell.textLabel?.text = city.location.name
-        cell.detailTextLabel?.text = "\(temp)°\(tempUnitIndex == 0 ? "C" : "F"), \(city.current.condition.text)"
-
-        let symbolName = mapCodeToSymbol(code: city.current.condition.code)
-        cell.imageView?.image = UIImage(systemName: symbolName)
-
+        let unit = tempUnitIndex == 0 ? "°C" : "°F"
+        let tempString = "\(temp)\(unit)"
+        
+        // Prepare the city name with country
+        let cityName = "\(city.location.name), \(city.location.country)"
+        
+        // Configure the cell
+        cell.cityLabel.text = cityName
+        cell.tempLabel.text = tempString
+        cell.weatherIcon.image = UIImage(systemName: mapCodeToSymbol(code: city.current.condition.code))
+        
         return cell
     }
 
-    // Helper method for icon mapping
+    // MARK: - Weather Condition to SF Symbol Mapping
+    
     func mapCodeToSymbol(code: Int) -> String {
         switch code {
         case 1000:
@@ -56,5 +64,12 @@ class CityListViewController: UIViewController, UITableViewDataSource, UITableVi
         default:
             return "questionmark.circle"
         }
+    }
+    
+    // MARK: - UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        // Handle cell selection if needed
     }
 }
