@@ -114,6 +114,59 @@ class ViewController: UIViewController, UITextFieldDelegate{
         return
     }
     
+    private func loadWeather(search: String?, index: Int){
+            guard let search = search else {
+                return
+            }
+            
+            guard let url = getURL(query: search) else{
+                print("Could not get URL")
+                return
+            }
+            
+            let session = URLSession.shared
+            
+            let dataTask = session.dataTask(with: url) { data, response, error in
+                guard error == nil else{
+                    print("Error received")
+                    return
+                }
+                
+                guard let data = data else{
+                    print("No data fould!")
+                    return
+                }
+                
+                if let weatherResponse = self.parseJson(data: data){
+                    DispatchQueue.main.async{ [self] in
+                        self.locationLabel.text = "\(weatherResponse.location.name), \(weatherResponse.location.country)"
+                        self.windSpeedLabel.text = "\(weatherResponse.current.wind_mph)mph"
+                        self.windDirectionLabel.text = "\(weatherResponse.current.wind_dir)"
+                        self.humidityLabel.text = "\(weatherResponse.current.humidity) %"
+                        if weatherResponse.current.is_day == 0{
+                            self.isDayLabel.text = "Night"
+                        }else{
+                            self.isDayLabel.text = "Day"
+                        }
+                        if(index == 0){
+                            self.temperatureLabel.text = "\(weatherResponse.current.temp_c)°C"
+                        }else if(index == 1){
+                            self.temperatureLabel.text = "\(weatherResponse.current.temp_f)°F"
+                        }
+                        self.statusLabel.text = weatherResponse.current.condition.text
+                        self.loadweatherImage(code: weatherResponse.current.condition.code)
+                        
+                        if !self.cityList.contains(where: { $0.cityID == weatherResponse.cityID }) {
+                            cityList.append(weatherResponse)
+                        }
+                
+                    }
+                }
+                
+            }
+            dataTask.resume()
+        }
+    
    
     
     private func loadweatherImage(code: Int){
