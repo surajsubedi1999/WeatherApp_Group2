@@ -1,0 +1,39 @@
+# Xcode
+.DS_Store
+*/xcuserdata
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+
+# Build
+build/
+DerivedData/
+
+# CocoaPods
+Pods/
+!Podfile.lock
+
+# App specific
+*.plist
+*.log
+*.backup
+
+# Swift Package Manager
+.swiftpm
+.build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Local configuration files
+.env
+.env.local
+
+# System files
+*.swp
+*.swo
+*~
