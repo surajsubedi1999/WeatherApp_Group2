@@ -48,26 +48,27 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="e7E-a4-Bt6">
-                                <rect key="frame" x="30" y="222.33333333333334" width="333" height="34.333333333333343"/>
+                                <rect key="frame" x="30" y="222.33333333333334" width="333" height="24.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsn-uZ-YIN">
-                                        <rect key="frame" x="0.0" y="0.0" width="258" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="24.333333333333332"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="pcQ-6c-lv8"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKS-6J-sDR">
-                                        <rect key="frame" x="263" y="0.0" width="70" height="34.333333333333336"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="70e-BE-99d"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Cities"/>
-                                        <connections>
-                                            <action selector="onCitiesTabbed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ot-mV-Gw3"/>
-                                        </connections>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXx-sF-Rrb">
+                                        <rect key="frame" x="205" y="0.0" width="128" height="24.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="OXx-sF-Rrb" firstAttribute="leading" secondItem="Wsn-uZ-YIN" secondAttribute="trailing" constant="5" id="HEM-9e-0RW"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="E9e-iK-yIG" userLabel="Display Stack View">
                                 <rect key="frame" x="20" y="292.33333333333331" width="353" height="289.99999999999994"/>
@@ -300,6 +301,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cityLabel" destination="OXx-sF-Rrb" id="xg6-8A-fb7"/>
                         <outlet property="humidityLabel" destination="cRH-3k-RrJ" id="69L-Tn-qOy"/>
                         <outlet property="isDayLabel" destination="xbL-ug-YP5" id="dg3-0x-fmd"/>
                         <outlet property="locationLabel" destination="Wsn-uZ-YIN" id="xjC-Hf-k7S"/>
@@ -319,7 +321,7 @@
         <!--City List View Controller-->
         <scene sceneID="3X8-Bk-sLs">
             <objects>
-                <viewController id="tj7-nz-wCx" customClass="CityListViewController" customModule="WeatherApp_Project2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CityListViewController" id="tj7-nz-wCx" customClass="CityListViewController" customModule="WeatherApp_Project2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="szK-9w-abB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -328,7 +330,7 @@
                                 <rect key="frame" x="30" y="79" width="333" height="684"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="citiesWeatherInfo" id="f67-vp-JUH">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" id="f67-vp-JUH">
                                         <rect key="frame" x="0.0" y="50" width="333" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f67-vp-JUH" id="wNl-hB-owv">
@@ -351,7 +353,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="oek-6F-B0E" id="Z06-Hm-jKJ"/>
+                        <outlet property="tableView" destination="oek-6F-B0E" id="Jkq-g4-n97"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbW-ZT-cWf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
